@@ -30,4 +30,4 @@ jobs:
           git config --global user.email 'oleonardorodrigues@users.noreply.github.com'
           git commit -am "Update README"
           git tag auto-$(date +%s)
-          git push --tags -u origin master
+          git push --tags -u origin main
