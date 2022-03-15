@@ -1,15 +1,3 @@
-# Terraform Template LRO
+<!-- BEGIN_TF_DOCS -->
 
-Template Genérico para módulos Terraform.
-
-## .gitignore
-
-## .editorconfig
-
-## Examples
-
-## main.tf
-
-## outputs.tf
-
-## variables.tf
+<!-- END_TF_DOCS -->
