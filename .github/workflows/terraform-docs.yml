@@ -1,0 +1,33 @@
+name: 'Terraform Docs'
+on:
+  push:
+    tags-ignore: "auto-*"
+    branches: [ master ]
+  pull_request:
+    tags-ignore: "auto-*"
+    branches: [ master ]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Install terraform-docs
+        run: |
+          curl -sSLo ./terraform-docs.tar.gz https://terraform-docs.io/dl/v0.16.0/terraform-docs-v0.16.0-$(uname)-amd64.tar.gz
+          tar -xzf terraform-docs.tar.gz
+          chmod +x terraform-docs
+          mv terraform-docs /bin/terraform-docs
+        
+      - name: Update README
+        run: |
+          terraform-docs .
+      
+      - name: Push Update
+        run: |
+          git config --global user.name 'OLeonardoRodrigues'
+          git config --global user.email 'oleonardorodrigues@users.noreply.github.com'
+          git commit -am "Update README"
+          git tag auto-$(date +%s)
+          git push --tags -u origin master
