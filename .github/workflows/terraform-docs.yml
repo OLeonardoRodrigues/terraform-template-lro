@@ -22,8 +22,6 @@ jobs:
         
       - name: Update README
         run: |
-          pwd
-          ls -r
           terraform-docs .
       
       - name: Push Update
