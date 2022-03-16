@@ -6,7 +6,6 @@ on:
   pull_request:
     tags-ignore: "auto-*"
     branches: [ master ]
-  workflow_dispatch:
 jobs:
   build:
     runs-on: ubuntu-latest
